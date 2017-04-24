@@ -48,3 +48,9 @@ template '/etc/sysconfig/docker' do
   )
   notifies :restart, 'service[docker]', :delayed
 end
+
+template '/etc/sysconfig/docker-storage' do
+  mode '0640'
+  source 'docker-storage.erb'
+  notifies :restart, 'service[docker]', :delayed
+end
